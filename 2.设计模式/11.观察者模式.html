@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        display: flex;
+      }
+      .left {
+        width: 200px;
+        background: skyblue;
+      }
+      .right {
+        flex: 1;
+        background: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="left">
+        <ul>
+          <li>首页</li>
+          <li>用户管理</li>
+        </ul>
+      </div>
+      <div class="right">
+        <div class="bread"></div>
+      </div>
+    </div>
+    <script>
+      class Subject {
+        constructor() {
+          this.observers = [];
+        }
+        //   添加观察者
+        add(observer) {
+          this.observers.push(observer);
+        }
+        //   通知观察者
+        notify(val) {
+          this.observers.forEach((item) => {
+            item.update(val);
+          });
+        }
+        //   移除观察者
+        remove(observer) {
+          this.observers = this.observers.filter((item) => item !== observer);
+        }
+      }
+
+      // 观察者
+      class Observer {
+        constructor(name) {
+          this.ele = document.querySelector(name);
+        }
+        update(val) {
+          this.ele.innerHTML = val;
+        }
+      }
+
+      const sbject = new Subject();
+      const observer = new Observer('.bread');
+      sbject.add(observer);
+
+      let oli = document.querySelectorAll('.left li');
+      for (let i = 0; i < oli.length; i++) {
+        oli[i].onclick = function () {
+          console.log(oli[i].innerHTML);
+          sbject.notify(oli[i].innerHTML);
+        };
+      }
+    </script>
+  </body>
+</html>

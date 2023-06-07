@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .modalContent {
+        width: 100px;
+        height: 100px;
+        position: fixed;
+        background: red;
+        top: 50%;
+        left: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="open">打开</button>
+    <button id="close">关闭</button>
+    <script>
+      const modal = (function () {
+        let instance = undefined;
+        return function () {
+          if (!instance) {
+            instance = document.createElement('div');
+            instance.innerHTML = 'modal';
+            instance.className = 'modalContent';
+            instance.style.display = 'none';
+            document.body.appendChild(instance);
+          }
+          return instance;
+        };
+      })();
+      document.querySelector('#open').onclick = () => {
+        const modalInstance = modal();
+        modalInstance.style.display = 'block';
+      };
+      document.querySelector('#close').onclick = () => {
+        const modalInstance = modal();
+        modalInstance.style.display = 'none';
+      };
+    </script>
+  </body>
+</html>
