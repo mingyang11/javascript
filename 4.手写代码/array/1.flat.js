@@ -2,7 +2,9 @@ Array.prototype.MyFlat = function (deep = true) {
   let arr = this;
   while (arr.some((item) => Array.isArray(item)) && deep) {
     arr = [].concat(...arr);
-    deep--;
+    if (Number.isInteger(deep)) {
+      deep--;
+    }
   }
   return arr;
 };
