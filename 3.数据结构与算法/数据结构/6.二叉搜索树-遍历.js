@@ -34,6 +34,10 @@ class BST {
     }
   }
   insertNode(node, key) {
+    // 插入的值相等时要推出
+    if (this.compare(node.key, key) === 0) {
+      throw new Error('树中已经有相同的值');
+    }
     //   小于
     if (this.compare(node.key, key) === -1) {
       if (node.left === null) {
@@ -86,3 +90,12 @@ class BST {
     }
   }
 }
+
+const bst = new BST();
+bst.insert(10);
+bst.insert(5);
+bst.insert(2);
+bst.insert(7);
+bst.insert(15);
+bst.insert(12);
+bst.insert(18);

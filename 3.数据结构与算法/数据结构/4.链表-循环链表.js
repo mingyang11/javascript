@@ -165,8 +165,8 @@ class CircleLinkedList extends LinkedList {
     if (this.head === null) {
       this.head = node;
     } else {
-      curent = this.getNodeAt(this.size() - 1);
-      curent.next = node;
+      current = this.getNodeAt(this.size() - 1);
+      current.next = node;
     }
     node.next = this.head;
     this.count++;
@@ -198,3 +198,7 @@ class CircleLinkedList extends LinkedList {
     return false;
   }
 }
+
+const linklist = new CircleLinkedList();
+linklist.push('yangmy');
+linklist.push('chuze');
