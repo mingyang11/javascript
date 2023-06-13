@@ -39,5 +39,6 @@ const dog1 = SingleDog.getInstance();
 const dog2 = SingleDog.getInstance();
 
 dog1.setItem('小黄', '大狗子');
+dog2.setItem('小黄', '笑狗子');
 console.log(dog1.getItem('小黄')); // 大狗子
 console.log(dog2.getItem('小黄')); // 大狗子
