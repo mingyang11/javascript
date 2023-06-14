@@ -20,14 +20,3 @@ function add(a, b, c, d) {
 const curried = curry(add);
 const result = curried(1)(2)(3, 4);
 console.log(result);
-
-// function Curr(fun) {
-//   return function carried(...args) {
-//     if (arguments.length < fun.length) {
-//       return function () {
-//         return carried(...[...args, ...arguments]);
-//       };
-//     }
-//     return fun(...args);
-//   };
-// }

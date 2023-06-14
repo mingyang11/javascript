@@ -28,11 +28,3 @@ function c(val) {
 
 const composed = compose(a, b, c);
 console.log(composed(1));
-
-// function compose(funcs) {
-//   return function (args) {
-//     return funcs.reverse().reduce((pre, cur) => {
-//       return cur(pre);
-//     }, args);
-//   };
-// }

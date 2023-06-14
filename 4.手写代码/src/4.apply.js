@@ -23,14 +23,3 @@ function printInfo(name, age) {
 }
 
 printInfo.myApply({ grid: '三年级' }, ['楚泽', 31]);
-
-// Function.prototype.apply11 = function (context, args) {
-//   if (typeof this !== 'function') {
-//     throw new Error(12);
-//   }
-//   context = context || window;
-//   context.fn = this;
-//   const result = context.fn(...args);
-//   delete context.fn;
-//   return result;
-// };
