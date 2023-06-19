@@ -17,7 +17,6 @@ Folder.prototype.scan = function () {
     item.scan();
   });
 };
-
 function File(file) {
   this.file = file;
 }
